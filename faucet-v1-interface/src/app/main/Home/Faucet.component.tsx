@@ -67,7 +67,7 @@ const Faucet = () => {
         <p className="minor text-center text-xl mb-4">Scan with the Vite Wallet app</p>
         <QR uri={connectURI} />
       </Modal>
-      <div className=" h-96 mx-10 space-y-6 flex flex-col justify-center items-center">
+      <div className=" h-80 mx-10 space-y-6 flex flex-col justify-center items-center">
         <div className="montserrat font-semibold text-gray-100 text-lg">
           VITE FAUCET
         </div>
@@ -107,7 +107,7 @@ const Faucet = () => {
           </div>
         }
       </div>
-      <div className="flex flex-col justify-end items-center text-sm mt-5 text-white mx-5">
+      <div className="flex flex-col justify-end items-center text-sm text-white mx-5">
         <div className="flex flex-col justify-left">
         <div>
             <p className="font-bold inline-block">Faucet Address:</p> {CONTRACT.address}
