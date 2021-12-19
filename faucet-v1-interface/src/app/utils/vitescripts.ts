@@ -73,8 +73,6 @@ export const callContract = async (
 };
 
 function sendVcTx(vbInstance: typeof Connector, ...args: any) {
-  // TODO: make this a modal that disappears on confirm
-  // setTimeout(() => window.alert('Confirm transaction on your device'), 100);
   return vbInstance
     .sendCustomRequest({ method: 'vite_signAndSendTx', params: args })
     .then((signedBlock: Block) => signedBlock);

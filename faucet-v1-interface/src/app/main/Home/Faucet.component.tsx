@@ -5,6 +5,7 @@ import { callContract, getBalance, getQuota } from '../../utils/vitescripts';
 import Connector from '@vite/connector';
 import QR from "../../shared/QR.component";
 import Modal from "../../shared/Modal.component";
+import CONTRACT from "../../utils/contracts";
 
 const Faucet = () => {
   const BRIDGE = 'wss://biforst.vite.net';
@@ -14,6 +15,7 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [balance, setBalance] = useState('');
 
+  getBalance((b) => { setBalance(b) });
 
   const connectWallet = useCallback(() => {
     console.log("Callback")
@@ -54,10 +56,10 @@ const Faucet = () => {
     callContract(vbInstance, 'sendVite', [], '0');
   };
 
-  const status = {
-    ERROR: "An error occurred. Please try again.",
-    INVALID_ADDRESS: "Please enter a valid address.",
-  };
+  // const status = {
+  //   ERROR: "An error occurred. Please try again.",
+  //   INVALID_ADDRESS: "Please enter a valid address.",
+  // };
 
   return (
     <div className=" bg-vite-primary">
@@ -106,12 +108,18 @@ const Faucet = () => {
         }
       </div>
       <div className="flex flex-col justify-end items-center text-sm mt-5 text-white mx-5">
+        <div className="flex flex-col justify-left">
         <div>
-          Current Faucet Balance: {balance}
+            <p className="font-bold inline-block">Faucet Address:</p> {CONTRACT.address}
         </div>
         <div>
-          Vite Faucet sends 0.25 vite. Please don't use an exchange address.
+            <p className="font-bold inline-block">Current Faucet Balance:</p> {balance}
         </div>
+          <div className="my-5 max-w-md">
+            <p className="font-bold inline-block underline">Note:</p> Vite Faucet sends 0.25 vite and at most a total of 1 Vite. Please don't use an exchange address.
+          </div>
+        </div>
+
       </div>
     </div>
   );
