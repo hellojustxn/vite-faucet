@@ -33,11 +33,24 @@ type Block = {
 };
 
 export const getQuota = () => {
-  WS_RPC.request('contract_getQuotaByAccount', ['vite_0b17be567fab3de7a6d2dde2fcf66f719d47977377779b54ba']).then((height: any) => {
+  WS_RPC.request('contract_getQuotaByAccount', [CONTRACT.address]).then((height: any) => {
     console.log(height);
   }).catch((err: any) => {
     console.warn(err);
   });
+}
+
+// TODO: Refractor, centralize state.
+// TODO: Provide a live update for the balance
+export const getBalance = (setBalance = (b: any) => { }) => {
+  viteClient.getBalanceInfo(CONTRACT.address)
+    .then(({ balance, unreceived }:any) => {
+      setBalance(balance.balanceInfoMap[Vite_TokenId].balance / 10 ** 18);
+    })
+    .catch((err:any) => {
+      console.warn(err);
+      return "N/A";
+    });
 }
 
 export const callContract = async (

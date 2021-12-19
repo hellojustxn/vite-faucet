@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import A from "../../shared/A.component";
 import { wallet } from '@vite/vitejs';
-import { callContract, getQuota } from '../../utils/vitescripts';
+import { callContract, getBalance, getQuota } from '../../utils/vitescripts';
 import Connector from '@vite/connector';
 import QR from "../../shared/QR.component";
 import Modal from "../../shared/Modal.component";
@@ -12,6 +12,9 @@ const Faucet = () => {
   const [connectURI, setConnectURI] = useState('');
   const [vbInstance, setVbInstance] = useState(null);
   const [address, setAddress] = useState('');
+  const [balance, setBalance] = useState('');
+
+  getBalance((b) => {setBalance(b)});
 
   const connectWallet = useCallback(() => {
     console.log("Callback")
@@ -67,7 +70,6 @@ const Faucet = () => {
         <div className="montserrat font-semibold text-gray-100 text-lg">
           VITE FAUCET
         </div>
-
         {vbInstance === null ?
           <div className="flex flex-col items-center text-center">
             <div className="montserrat text-gray-100 text-lg  ">
@@ -83,7 +85,6 @@ const Faucet = () => {
               Get Started
             </button>
           </div>
-
           :
           <div className="flex flex-col items-center">
             <button
@@ -107,14 +108,13 @@ const Faucet = () => {
       </div>
       <div className="flex flex-col justify-end items-center text-sm mt-5 text-white mx-5">
         <div>
-          Faucet Current Balance: Unable to check balance
+          Current Faucet Balance: {balance}
         </div>
         <div>
-          Nano-Faucet sends 0.015% of total account balance. Please don't use an exchange address.
+          Vite Faucet sends 0.25 vite. Please don't use an exchange address.
         </div>
       </div>
     </div>
-
   );
 };
 
