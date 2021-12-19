@@ -1,5 +1,5 @@
 # Vite Faucet
-This project will be live on 12/18/21
+This project will be live and useable on the testnet starting 12/18/21
 
 Domain name: https://vitefaucet.netlify.app/
 
