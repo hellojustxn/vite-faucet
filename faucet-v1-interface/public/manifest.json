@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Vite Faucet",
+  "name": "Vite Faucet",
   "icons": [
     {
       "src": "favicon.ico",
