@@ -107,16 +107,16 @@ const Faucet = () => {
           </div>
         }
       </div>
-      <div className="flex flex-col justify-end items-center text-sm break-all my-2 mx-5 text-white">
+      <div className="flex flex-col justify-end items-center text-sm my-2 mx-5 text-white">
         <div className="flex flex-col justify-left">
           <div>
-            <p className="font-bold inline-block">Faucet Address:</p> <p >{CONTRACT.address}</p>
+            <p className="font-bold inline-block">Faucet Address:</p> <p className="break-all">{CONTRACT.address}</p>
           </div>
           <div>
-            <p className="font-bold inline-block">Current Faucet Balance:</p> {balance}
+            <p className="font-bold inline-block break-words">Current Faucet Balance:</p> {balance}
           </div>
           <div className="my-5 max-w-md">
-            <p className="font-bold inline-block underline">Note:</p> <p > Vite Faucet sends 0.25 vite and at most a total of 1 Vite. Please don't use an exchange address.</p>
+            <p className="font-bold inline-block underline">Note:</p> <p className="break-words"> Vite Faucet sends 0.25 vite and at most a total of 1 Vite. Please don't use an exchange address.</p>
           </div>
         </div>
 
