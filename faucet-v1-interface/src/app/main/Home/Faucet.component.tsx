@@ -14,7 +14,6 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [balance, setBalance] = useState('');
 
-  getBalance((b) => {setBalance(b)});
 
   const connectWallet = useCallback(() => {
     console.log("Callback")
