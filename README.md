@@ -1,7 +1,7 @@
 # Vite Faucet
 This project will be live and useable on the testnet starting 12/18/21
 
-Domain name: https://vitefaucet.netlify.app/
+Domain name: https://vitefaucet.com/
 
 Currently the smart contract is deployed only on the TestNet. To point your wallet to the testnet, in the Vite wallet app > click the top left profile icon > settings > node settings > vite and add custom node. Use the following URL:
 
